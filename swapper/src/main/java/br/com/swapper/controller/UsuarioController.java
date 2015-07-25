@@ -1,5 +1,15 @@
 package br.com.swapper.controller;
 
-public class UsuarioController {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+
+public class UsuarioController 
+{
+	@RequestMapping("/index")
+	public String index()
+	{
+		return "index";
+	}
 }
