@@ -1,5 +1,7 @@
 package br.com.swapper.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -25,5 +27,32 @@ public class UsuarioDAO
 	public void save(Usuario usuario)
 	{
 		manager.persist(usuario);
+	}
+	
+	/**
+	 * Remove usuário
+	 * @param usuario
+	 */
+	public void delete(Usuario usuario)
+	{
+		manager.remove(usuario);
+	}
+	
+	/**
+	 * Atualiza dados do usuário
+	 * @param usuario
+	 */
+	public void update(Usuario usuario)
+	{
+		manager.merge(usuario);
+	}
+	
+	/**
+	 * Lista todos os usuários cadastrados
+	 * @return
+	 */
+	public List<Usuario> list()
+	{
+		return manager.createQuery("Select p From Usuario p", Usuario.class).getResultList();
 	}
 }
