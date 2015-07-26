@@ -35,7 +35,7 @@ public class JPAConfiguration
 	private static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
 	private static final String DRIVER_URL   = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT +"/" + DB_SCHEMA;
 	private static final String USERNAME     = "root";
-	private static final String PASSWORD     = "mariaj312";
+	private static final String PASSWORD     = "******";
 	
 	/*
 	 * Configurações do Hibernate
