@@ -5,18 +5,24 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
-	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
+	protected Class<?>[] getRootConfigClasses() 
+	{
 		return null;
 	}
 
 	@Override
-	protected Class<?>[] getServletConfigClasses() {
-		return new Class[]{AppWebConfiguration.class};
+	protected Class<?>[] getServletConfigClasses() 
+	{
+		return new Class[] 
+		{
+			AppWebConfiguration.class,
+			JPAConfiguration.class
+		};
 	}
 
 	@Override
-	protected String[] getServletMappings() {
+	protected String[] getServletMappings() 
+	{
 		return new String[]{"/"};
 	}
 
