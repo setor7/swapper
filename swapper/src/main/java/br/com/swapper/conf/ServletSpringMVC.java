@@ -24,8 +24,11 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	{
 		return new Class[] 
 		{
-			AppWebConfiguration.class, // Configurações adicionais
-			JPAConfiguration.class     // Configurações de DataSource
+			// Configurações adicionais
+			AppWebConfiguration.class, 
+			
+			// Configurações de DataSource
+			JPAConfiguration.class     
 		};
 	}
 
