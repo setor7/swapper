@@ -14,6 +14,11 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * Classe que define as configurações do DataSource da aplicação
+ * @author Bruno Carneiro
+ *
+ */
 @EnableTransactionManagement
 public class JPAConfiguration 
 {
