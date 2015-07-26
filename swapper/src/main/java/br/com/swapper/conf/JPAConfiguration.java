@@ -17,6 +17,36 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class JPAConfiguration 
 {
+	/*
+	 * Parâmetros de conexão
+	 */
+	private static final String DB_HOST   = "localhost";
+	private static final String DB_PORT   = "3306";
+	private static final String DB_SCHEMA = "swapper";
+	
+	/*
+	 * Configurações de conexão
+	 */
+	private static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
+	private static final String DRIVER_URL   = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT +"/" + DB_SCHEMA;
+	private static final String USERNAME     = "root";
+	private static final String PASSWORD     = "mariaj312";
+	
+	/*
+	 * Configurações do Hibernate
+	 */
+	private static final String HIBERNATE_HBM2DDL_AUTO_PROPERTY = "hibernate.hbm2ddl.auto";
+	private static final String HIBERNATE_HBM2DDL_AUTO_VALUE    = "update";
+	
+	private static final String HIBERNATE_DIALECT_PROPERTY      = "hibernate.dialect";
+	private static final String HIBERNATE_DIALECT_VALUE         = "org.hibernate.dialect.MySQL5Dialect";
+	
+	private static final String HIBERNATE_SHOW_SQL_PROPERTY     = "hibernate.show_sql";
+	private static final String HIBERNATE_SHOW_SQL_VALUE        = "true";
+	
+	private static final String HIBERNATE_FORMAT_SQL_PROPERTY   = "hibernate.format_sql";
+	private static final String HIBERNATE_FORMAT_SQL_VALUE      = "true";
+	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory()
 	{
@@ -38,10 +68,10 @@ public class JPAConfiguration
 	{
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl            ("jdbc:mysql://localhost:3306/swapper");
-		dataSource.setUsername       ("root");
-		dataSource.setPassword       ("mariaj312");
+		dataSource.setDriverClassName(DRIVER_CLASS);
+		dataSource.setUrl            (DRIVER_URL);
+		dataSource.setUsername       (USERNAME);
+		dataSource.setPassword       (PASSWORD);
 		
 		return dataSource;
 	}
@@ -50,10 +80,10 @@ public class JPAConfiguration
 	{
 		Properties properties = new Properties();
 		
-		properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		properties.setProperty("hibernate.dialect"     , "org.hibernate.dialect.MySQL5Dialect");
-		properties.setProperty("hibernate.show_sql"    , "true");
-		properties.setProperty("format_sql"            , "true");
+		properties.setProperty(HIBERNATE_HBM2DDL_AUTO_PROPERTY, HIBERNATE_HBM2DDL_AUTO_VALUE);
+		properties.setProperty(HIBERNATE_DIALECT_PROPERTY     , HIBERNATE_DIALECT_VALUE);
+		properties.setProperty(HIBERNATE_SHOW_SQL_PROPERTY    , HIBERNATE_SHOW_SQL_VALUE);
+		properties.setProperty(HIBERNATE_FORMAT_SQL_PROPERTY  , HIBERNATE_FORMAT_SQL_VALUE);
 		
 		return properties;
 	}
